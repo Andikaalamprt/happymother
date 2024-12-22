@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Button</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: purple;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Masukkin Nama Ibu</h1>
+    <input type="text" id="nameInput" placeholder="Nama Anda" />
+    <br>
+    <button onclick="goToDomba()">❤️</button>
+</div>
+
+<script>
+    function goToDomba() {
+        const name = document.getElementById('nameInput').value;
+        if (name) {
+            // Simpan nama ke localStorage jika ingin menggunakannya di domba.html
+            localStorage.setItem('userName', name);
+            // Alihkan ke halaman domba.html
+            window.location.href = 'domba.html';
+        } else {
+            alert('Silakan masukkan nama Anda!');
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Selamat Hari Ibu
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+        .slide {
+            display: none;
+        }
+
+        #slideContainer img {
+    max-width: 100%; /* Membuat gambar menyesuaikan lebar kontainer */
+    height: auto; /* Mempertahankan rasio aspek */
+    object-fit: cover; /* Memastikan gambar memenuhi area tanpa distorsi */
+    border-radius: 8px; /* Membuat sudut melengkung */
+}
+
+    </style>
+    <script>
+        let currentSlide = 0;
+        const slides = [];
+
+        function initSlides() {
+            const slideImages = [
+                '1.jpg',
+                '2.jpg',
+                '3.jpg',
+                '4.jpg',
+                '5.jpg'
+            ];
+
+            const slideContainer = document.getElementById('slideContainer');
+            slideImages.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Slide ${index + 1}`;
+                img.className = 'rounded-lg shadow-lg slide animate-fade-in';
+                img.style.display = index === 0 ? 'block' : 'none'; // Show first image
+                slideContainer.appendChild(img);
+                slides.push(img);
+            });
+
+            setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+        }
+
+        function showNextSlide() {
+            slides[currentSlide].style.display = 'none'; // Hide current slide
+            currentSlide = (currentSlide + 1) % slides.length; // Move to the next slide
+            slides[currentSlide].style.display = 'block'; // Show next slide
+        }
+
+        function generateGreeting() {
+            alert('Please fill in all fields.');
+        }
+
+        function sendWhatsAppMessage() {
+            const phoneNumber = '6281400796283'; // Replace with your phone number
+            const message = encodeURIComponent('MBEEE');
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(url, '_blank');
+        }
+
+        window.onload = initSlides; // Initialize slides on page load
+
+        // Add this function to handle music autoplay
+    function toggleMusic() {
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        // Check if music is paused, if so, play it
+        if (backgroundMusic.paused) {
+            backgroundMusic.play()
+                .catch(error => {
+                    // Autoplay was prevented by browser
+                    console.log('Autoplay was blocked', error);
+                    alert('Please interact with the page to play music');
+                });
+        } else {
+            backgroundMusic.pause();
+        }
+    }
+
+    // Modify window.onload to include music initialization
+    window.onload = function() {
+        initSlides(); // Existing slide initialization
+
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        // Add event listener for user interaction to play music
+        document.addEventListener('click', function() {
+            backgroundMusic.play()
+                .catch(error => {
+                    console.log('Autoplay was blocked', error);
+                });
+        }, { once: true });
+    };
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Modify the audio tag to add controls and autoplay -->
+<audio id="backgroundMusic" loop autoplay>
+    <source src="ibu.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Optional: Add a music toggle button in the footer or header -->
+<div class="text-center mt-4">
+    <button onclick="toggleMusic()" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">
+        <i class="fas fa-music"></i> Toggle Music
+    </button>
+</div>
+
+    <header class="text-center py-10">
+        <h1 class="text-5xl font-bold animate-fade-in">
+            Selamat Hari Ibu
+        </h1>
+        <p class="text-xl mt-4 animate-fade-in">
+            Terima kasih atas segala cinta dan pengorbananmu
+        </p>
+    </header>
+    <img>
+    <img class="rounded-lg shadow-lg object-cover w-full max-w-3xl mx-auto" ... />
+    <img class="rounded-lg shadow-lg object-cover w-full max-w-3xl mx-auto" ... /></img>
+    <main class="flex flex-col items-center">
+        <div id="slideContainer" class="mt-10"></div>
+        <div class="mt-10 text-center animate-fade-in">
+            <h2 class="text-3xl font-bold">
+                Ucapan Spesial
+            </h2>
+            <p class="mt-4 text-lg">
+                Untuk Ibu Tersayang,
+
+                Terima kasih atas semua cinta, pengorbanan, dan doa yang tak pernah putus. Setiap senyumanmu adalah kekuatan bagiku, dan setiap pelukanmu adalah rumah paling nyaman.
+                
+                Hari ini, aku ingin mengingatkan betapa berartinya dirimu bagiku. Ibu adalah pahlawan dalam hidupku, tanpa jubah, tapi dengan hati yang luar biasa besar.
+                
+                Aku mencintaimu, Bu, lebih dari kata-kata yang bisa menggambarkan. Selamat Hari Ibu. Semoga Ibu selalu sehat, bahagia, dan dikelilingi oleh cinta yang tiada henti. ❤️
+            </p>
+        </div>
+
+        <div class="mt-10 flex space-x-4 animate-fade-in">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full animate-bounce" onclick="sendWhatsAppMessage()">
+                <i class="fas fa-heart"></i>
+                Kirim Ucapan
+            </button>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full animate-bounce" onclick="window.location.href='flower.html'">
+                Klik Ini Dulu
+            </button>
+        </div>
+        <div class="mt-10 text-center hidden animate-fade-in" id="greetingSection">
+            <h2 class="text-3xl font-bold">
+                Selamat Hari Ibu!
+            </h2>
+            <img alt="Gambar yang diunggah oleh pengguna" class="rounded-lg shadow-lg mt-4" height="400" id="greetingImage" src="" width="600"/>
+        </div>
+    </main>
+    
+    <footer class="text-center py-10 mt-10 border-t border-gray-700">
+        <p>
+            © 2024 By Tama. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>
